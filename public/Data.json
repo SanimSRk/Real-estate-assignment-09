@@ -1,6 +1,6 @@
 [
   {
-    "image": "https://example.com/residential-property1.jpg",
+    "image": "https://ibb.co/z6sR9b8",
     "title": "Modern Urban Apartment in Downtown Metropolis",
     "id": 1,
     "segment_name": "Apartments",
@@ -12,7 +12,7 @@
     "facilities": ["Living room", "Kitchen", "Balcony", "Gym"]
   },
   {
-    "image": "https://example.com/residential-property2.jpg",
+    "image": "https://ibb.co/phMvbFc",
     "title": "Family-friendly Suburban Home in Suburbia Estates",
     "id": 2,
     "segment_name": "Single-family homes",
@@ -24,7 +24,7 @@
     "facilities": ["Living room", "Kitchen", "Backyard", "Garage"]
   },
   {
-    "image": "https://example.com/residential-property3.jpg",
+    "image": "https://ibb.co/ggBCZFZ",
     "title": "Luxury Beachfront Villa in Tropical Paradise",
     "id": 3,
     "segment_name": "Vacation rentals",
@@ -36,7 +36,7 @@
     "facilities": ["Living room", "Swimming pool", "Beach access", "Garden"]
   },
   {
-    "image": "https://example.com/residential-property4.jpg",
+    "image": "https://ibb.co/P1m0hK7",
     "title": "Chic Downtown Loft with Industrial Charm",
     "id": 4,
     "segment_name": "Lofts",
@@ -48,7 +48,7 @@
     "facilities": ["Open floor plan", "High ceilings", "Exposed brick"]
   },
   {
-    "image": "https://example.com/residential-property5.jpg",
+    "image": "https://ibb.co/cyV9JjL",
     "title": "Active Senior Living Community in Retirement Village",
     "id": 5,
     "segment_name": "Senior living communities",
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "image": "https://example.com/residential-property6.jpg",
+    "image": "https://ibb.co/fqdH4K6",
     "title": "Modern Student Housing Complex near University",
     "id": 6,
     "segment_name": "Student housing",
@@ -80,7 +80,7 @@
     ]
   },
   {
-    "image": "https://example.com/residential-property7.jpg",
+    "image": "https://ibb.co/x77Mwvs",
     "title": "Cozy Mountain Retreat Cabin with Scenic Views",
     "id": 7,
     "segment_name": "Vacation rentals",
@@ -92,7 +92,7 @@
     "facilities": ["Living room", "Kitchen", "Scenic views"]
   },
   {
-    "image": "https://example.com/residential-property8.jpg",
+    "image": "https://ibb.co/NKyJPP8",
     "title": "Modern Townhouse with Park Views in Parkside Neighborhood",
     "id": 8,
     "segment_name": "Townhouses",
@@ -104,7 +104,7 @@
     "facilities": ["Living room", "Kitchen", "Park views"]
   },
   {
-    "image": "https://example.com/residential-property9.jpg",
+    "image": "https://ibb.co/Ns4pY2Q",
     "title": "Luxurious City Center Penthouse with Expansive City Views",
     "id": 9,
     "segment_name": "Apartments",

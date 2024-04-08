@@ -42,7 +42,9 @@ const Navers = () => {
               {navLInks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">HomeHaven</a>
+          <a className="btn btn-ghost lg:text-4xl gap-0 font-extrabold ">
+            Home<span className="text-[#FF9638]">Haven</span>
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-4">{navLInks}</ul>

@@ -1,7 +1,9 @@
+import Banner from '../Compment/Banner/Banner';
+
 const Home = () => {
   return (
     <div>
-      <h2>Home section</h2>
+      <Banner></Banner>
     </div>
   );
 };
