@@ -4,7 +4,9 @@ import Navers from '../Compment/Naver/Navers';
 const MainLayout = () => {
   return (
     <div>
-      <Navers></Navers>
+      <div className="h-16">
+        <Navers></Navers>
+      </div>
       <Outlet></Outlet>
     </div>
   );
