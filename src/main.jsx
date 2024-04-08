@@ -6,6 +6,9 @@ import MainLayout from './Layout/MainLayout';
 import Home from './Pages/Home';
 import Property from './Pages/Property';
 import Profile from './Pages/Profile';
+import CartDetails from './Pages/CartDetails';
+import Login from './FormRealted/Login';
+import Register from './FormRealted/Register';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +25,19 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile></Profile>,
+      },
+      {
+        path: '/cartDeatils/:id',
+        element: <CartDetails></CartDetails>,
+        loader: () => fetch('/Data.json'),
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/register',
+        element: <Register></Register>,
       },
     ],
   },

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Cartds = ({ resnt }) => {
   const { id, image, title, status, segment_name, facilities, price, area } =
     resnt;
@@ -29,9 +31,11 @@ const Cartds = ({ resnt }) => {
           <p className="font-semibold">Area : {area}</p>
         </div>
       </div>
-      <button className="btn mt-6 font-semibold text-white bg-[#FF9638]">
-        View Property
-      </button>
+      <Link to={`/cartDeatils/${id}`}>
+        <button className="btn mt-6 font-semibold text-white bg-[#FF9638]">
+          View Property
+        </button>
+      </Link>
     </div>
   );
 };
