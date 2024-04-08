@@ -1,0 +1,118 @@
+[
+  {
+    "image": "https://example.com/residential-property1.jpg",
+    "title": "Modern Urban Apartment in Downtown Metropolis",
+    "id": 1,
+    "segment_name": "Apartments",
+    "description": "Stylish apartment in the heart of the city with 2 bedrooms, 2 bathrooms, and panoramic city views.",
+    "price": "$800,000",
+    "status": "sale",
+    "area": "1200 sq ft",
+    "location": "Downtown, Metropolis",
+    "facilities": ["Living room", "Kitchen", "Balcony", "Gym"]
+  },
+  {
+    "image": "https://example.com/residential-property2.jpg",
+    "title": "Family-friendly Suburban Home in Suburbia Estates",
+    "id": 2,
+    "segment_name": "Single-family homes",
+    "description": "Cozy home in a quiet suburban neighborhood with 3 bedrooms, 2.5 bathrooms, and a spacious backyard.",
+    "price": "$600,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "Suburbia Estates, Suburbia",
+    "facilities": ["Living room", "Kitchen", "Backyard", "Garage"]
+  },
+  {
+    "image": "https://example.com/residential-property3.jpg",
+    "title": "Luxury Beachfront Villa in Tropical Paradise",
+    "id": 3,
+    "segment_name": "Vacation rentals",
+    "description": "Exquisite beachfront villa with 5 bedrooms, 4 bathrooms, private pool, and direct beach access.",
+    "price": "$2,500/night",
+    "status": "rent",
+    "area": "4000 sq ft",
+    "location": "Beachfront, Tropical Paradise",
+    "facilities": ["Living room", "Swimming pool", "Beach access", "Garden"]
+  },
+  {
+    "image": "https://example.com/residential-property4.jpg",
+    "title": "Chic Downtown Loft with Industrial Charm",
+    "id": 4,
+    "segment_name": "Lofts",
+    "description": "Chic loft space in a historic downtown building with open floor plan and industrial-chic design.",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "1500 sq ft",
+    "location": "Artsy District, Downtown",
+    "facilities": ["Open floor plan", "High ceilings", "Exposed brick"]
+  },
+  {
+    "image": "https://example.com/residential-property5.jpg",
+    "title": "Active Senior Living Community in Retirement Village",
+    "id": 5,
+    "segment_name": "Senior living communities",
+    "description": "Active senior living community offering spacious apartments, recreational activities, and on-site healthcare.",
+    "price": "$3,000/month",
+    "status": "rent",
+    "area": "Varies",
+    "location": "Retirement Village, Elderly Town",
+    "facilities": [
+      "Independent living units",
+      "Recreational activities",
+      "Healthcare services"
+    ]
+  },
+  {
+    "image": "https://example.com/residential-property6.jpg",
+    "title": "Modern Student Housing Complex near University",
+    "id": 6,
+    "segment_name": "Student housing",
+    "description": "Modern student housing complex near the university campus with furnished apartments and study lounges.",
+    "price": "$900/month",
+    "status": "rent",
+    "area": "Varies",
+    "location": "University District, College Town",
+    "facilities": [
+      "Furnished rooms",
+      "Study lounges",
+      "Recreational facilities"
+    ]
+  },
+  {
+    "image": "https://example.com/residential-property7.jpg",
+    "title": "Cozy Mountain Retreat Cabin with Scenic Views",
+    "id": 7,
+    "segment_name": "Vacation rentals",
+    "description": "Cozy cabin nestled in the mountains with scenic views, perfect for a peaceful getaway.",
+    "price": "$300/night",
+    "status": "rent",
+    "area": "800 sq ft",
+    "location": "Mountain Retreat, Scenic Area",
+    "facilities": ["Living room", "Kitchen", "Scenic views"]
+  },
+  {
+    "image": "https://example.com/residential-property8.jpg",
+    "title": "Modern Townhouse with Park Views in Parkside Neighborhood",
+    "id": 8,
+    "segment_name": "Townhouses",
+    "description": "Modern townhouse with 3 bedrooms, 2.5 bathrooms, and views of the neighborhood park.",
+    "price": "$750,000",
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "Parkside Neighborhood, Urban Area",
+    "facilities": ["Living room", "Kitchen", "Park views"]
+  },
+  {
+    "image": "https://example.com/residential-property9.jpg",
+    "title": "Luxurious City Center Penthouse with Expansive City Views",
+    "id": 9,
+    "segment_name": "Apartments",
+    "description": "Luxurious penthouse apartment in the city center with 3 bedrooms, 3 bathrooms, and expansive city views.",
+    "price": "$1,500,000",
+    "status": "sale",
+    "area": "2200 sq ft",
+    "location": "Downtown, Metropolis",
+    "facilities": ["Living room", "Kitchen", "City views", "Swimming pool"]
+  }
+]
