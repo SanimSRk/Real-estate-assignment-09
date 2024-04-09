@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
-
+import { useForm } from 'react-hook-form';
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = data => {
+    console.log(data);
+  };
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="w-1/2 hero-content flex-col lg:flex-row-reverse">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Name</span>
@@ -16,6 +26,7 @@ const Register = () => {
                   placeholder="Your Name"
                   className="input input-bordered"
                   required
+                  {...register('fullName', { required: true })}
                 />
               </div>
               <div className="form-control">
@@ -27,6 +38,7 @@ const Register = () => {
                   placeholder="email"
                   className="input input-bordered"
                   required
+                  {...register('email', { required: true })}
                 />
               </div>
               <div className="form-control">
@@ -38,6 +50,7 @@ const Register = () => {
                   placeholder="Photo "
                   className="input input-bordered"
                   required
+                  {...register('photo', { required: true })}
                 />
               </div>
               <div className="form-control">
@@ -49,6 +62,7 @@ const Register = () => {
                   placeholder="password"
                   className="input input-bordered"
                   required
+                  {...register('password', { required: true })}
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -57,7 +71,11 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Registraion</button>
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Registraion"
+                />
               </div>
               <h2 className="text-center">
                 Alredy account ?
