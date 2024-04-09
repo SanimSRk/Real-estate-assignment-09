@@ -3,7 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  updateCurrentUser,
+  updateProfile,
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../Firebase/firebaseAuth.init';
@@ -11,11 +11,21 @@ import auth from '../Firebase/firebaseAuth.init';
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loding, setLodin] = useState(true);
+  console.log(user);
   const creatAuccount = (email, password) => {
+    setLodin(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  const profileUpted = (fullName, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: fullName,
+      photoURL: photo,
+    });
   };
 
   const LoginUsers = (email, password) => {
+    setLodin(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -24,13 +34,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const profileUpted = () => {
-    return updateCurrentUser((auth.currentUser, {}));
-  };
   useEffect(() => {
     const unsubricbe = onAuthStateChanged(auth, currentUser => {
       if (currentUser) {
         setUser(currentUser);
+        setLodin(false);
       } else {
         return () => {
           unsubricbe();
@@ -38,7 +46,14 @@ const AuthProvider = ({ children }) => {
       }
     });
   }, []);
-  const authInfo = { user, creatAuccount, LoginUsers, LogOutUser };
+  const authInfo = {
+    profileUpted,
+    loding,
+    user,
+    creatAuccount,
+    LoginUsers,
+    LogOutUser,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children} </AuthContext.Provider>
   );

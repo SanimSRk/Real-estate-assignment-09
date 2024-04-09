@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const Register = () => {
-  const { creatAuccount } = useContext(AuthContext);
+  const { creatAuccount, profileUpted } = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const location = useLocation();
   const {
     register,
     handleSubmit,
@@ -12,8 +16,10 @@ const Register = () => {
 
   const onSubmit = data => {
     creatAuccount(data.email, data.password)
-      .then(res => {
-        console.log(res.user);
+      .then(() => {
+        profileUpted(data.fullName, data.photo).then(() => {
+          Navigate(location?.state || '/');
+        });
       })
       .catch(error => {
         console.log(error);

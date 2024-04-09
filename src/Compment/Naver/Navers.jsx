@@ -4,6 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navers = () => {
   const { user, LogOutUser } = useContext(AuthContext);
+
   const handileLogOut = () => {
     LogOutUser()
       .then(res => {
@@ -73,7 +74,10 @@ const Navers = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      src={
+                        user?.photoURL ||
+                        'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
+                      }
                     />
                   </div>
                 </div>
@@ -83,13 +87,11 @@ const Navers = () => {
                 >
                   <li>
                     <a className="justify-between">
-                      Profile
+                      {user?.displayName}
                       <span className="badge">New</span>
                     </a>
                   </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
+
                   <li onClick={handileLogOut}>
                     <a>Logout</a>
                   </li>
