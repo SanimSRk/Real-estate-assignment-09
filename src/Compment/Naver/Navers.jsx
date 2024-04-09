@@ -87,8 +87,7 @@ const Navers = () => {
                 >
                   <li>
                     <a className="justify-between">
-                      {user?.displayName}
-                      <span className="badge">New</span>
+                      {user?.displayName || 'Name not found'}
                     </a>
                   </li>
 

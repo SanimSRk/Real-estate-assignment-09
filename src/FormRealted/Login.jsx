@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
-  const { LoginUsers } = useContext(AuthContext);
+  const { LoginUsers, user } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
+  const [errorMassge, setErrorsMassge] = useState(null);
   const {
     register,
     handleSubmit,
@@ -15,6 +18,10 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = data => {
+    if (!user) {
+      toast('Incorrect email or Password!');
+      setErrorsMassge('Incorrect email or Password');
+    }
     LoginUsers(data.email, data.password)
       .then(res => {
         if (res.user) {
@@ -60,13 +67,17 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <h2 className=" text-center font-semibold text-red-600">
+                {errorMassge}
+              </h2>
+              <div className="form-control mt-4">
                 <input
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
                 />
               </div>
+
               <h2 className="text-center">
                 Do not have a account ?
                 <Link to={'/register'}>
@@ -75,6 +86,8 @@ const Login = () => {
                   </span>
                 </Link>
               </h2>
+
+              {/* <ToastContainer className={'rounded-lg'}></ToastContainer> */}
             </form>
           </div>
         </div>

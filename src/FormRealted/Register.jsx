@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 const Register = () => {
   const { creatAuccount, profileUpted } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
+  const [errorss, setErrors] = useState('');
+  const [shows, setShows] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -15,6 +19,17 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = data => {
+    if (data.password.length < 6) {
+      setErrors('Password should be at least 6 characters');
+      return;
+    } else if (!/[A-Z]/.test(data.password)) {
+      setErrors('Password does not have at least one uppercase letter');
+    } else if (!/[a-z]/.test(data.password)) {
+      setErrors('Password does not have at least one lowercase letter');
+    } else {
+      setErrors(null);
+    }
+
     creatAuccount(data.email, data.password)
       .then(() => {
         profileUpted(data.fullName, data.photo).then(() => {
@@ -72,13 +87,21 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                  required
-                  {...register('password', { required: true })}
-                />
+                <div className="input input-bordered flex justify-between items-center">
+                  <input
+                    type={shows ? 'text' : 'password'}
+                    placeholder="password"
+                    className=""
+                    required
+                    {...register('password', { required: true })}
+                  />
+                  <span onClick={() => setShows(!shows)} className="text-2xl">
+                    {shows ? <IoMdEyeOff></IoMdEyeOff> : <IoMdEye></IoMdEye>}
+                  </span>
+                </div>
+
+                <h2 className="text-red-600 font-semibold">{errorss}</h2>
+
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

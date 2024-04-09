@@ -12,11 +12,12 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loding, setLodin] = useState(true);
-  console.log(user);
+
   const creatAuccount = (email, password) => {
     setLodin(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
   const profileUpted = (fullName, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: fullName,
