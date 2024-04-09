@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+import { FcGoogle } from 'react-icons/fc';
+import { BsGithub } from 'react-icons/bs';
 const Login = () => {
-  const { LoginUsers, user } = useContext(AuthContext);
+  const { LoginUsers, user, googleSinig, gitHubSinig } =
+    useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const [errorMassge, setErrorsMassge] = useState(null);
@@ -17,9 +19,32 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const handileGoogleSinig = () => {
+    googleSinig()
+      .then(res => {
+        if (res.user) {
+          Navigate(location?.state ? location.state : '/');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const handileClickGitgub = () => {
+    gitHubSinig()
+      .then(res => {
+        if (res.user) {
+          Navigate(location?.state ? location.state : '/');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   const onSubmit = data => {
     if (!user) {
-      toast('Incorrect email or Password!');
       setErrorsMassge('Incorrect email or Password');
     }
     LoginUsers(data.email, data.password)
@@ -86,9 +111,15 @@ const Login = () => {
                   </span>
                 </Link>
               </h2>
-
-              {/* <ToastContainer className={'rounded-lg'}></ToastContainer> */}
             </form>
+            <div className="mb-4 flex justify-center gap-6">
+              <button onClick={handileGoogleSinig} className="btn  btn-outline">
+                <FcGoogle className="text-3xl"></FcGoogle>{' '}
+              </button>
+              <button onClick={handileClickGitgub} className="btn  btn-outline">
+                <BsGithub className="text-3xl"></BsGithub>{' '}
+              </button>
+            </div>
           </div>
         </div>
       </div>
