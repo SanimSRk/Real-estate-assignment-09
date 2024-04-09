@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
   const { LoginUsers } = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const location = useLocation();
   const {
     register,
     handleSubmit,
@@ -13,7 +17,9 @@ const Login = () => {
   const onSubmit = data => {
     LoginUsers(data.email, data.password)
       .then(res => {
-        console.log(res.user);
+        if (res.user) {
+          Navigate(location?.state ? location.state : '/');
+        }
       })
       .catch(error => {
         console.log(error);

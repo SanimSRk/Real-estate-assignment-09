@@ -10,6 +10,7 @@ import CartDetails from './Pages/CartDetails';
 import Login from './FormRealted/Login';
 import Register from './FormRealted/Register';
 import AuthProvider from './AuthProvider/AuthProvider';
+import PrivtedRout from './PrivtedRout/PrivtedRout';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/cartDeatils/:id',
-        element: <CartDetails></CartDetails>,
+        element: (
+          <PrivtedRout>
+            <CartDetails></CartDetails>
+          </PrivtedRout>
+        ),
         loader: () => fetch('/Data.json'),
       },
       {

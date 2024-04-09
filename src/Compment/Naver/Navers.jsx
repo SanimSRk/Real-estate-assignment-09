@@ -7,7 +7,7 @@ const Navers = () => {
   const handileLogOut = () => {
     LogOutUser()
       .then(res => {
-        console.log('logout is done', res.user);
+        console.log(res.user);
       })
       .catch(error => {
         console.log(error);

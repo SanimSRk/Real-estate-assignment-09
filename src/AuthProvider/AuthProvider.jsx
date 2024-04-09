@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateCurrentUser,
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../Firebase/firebaseAuth.init';
@@ -19,7 +20,12 @@ const AuthProvider = ({ children }) => {
   };
 
   const LogOutUser = () => {
+    setUser(null);
     return signOut(auth);
+  };
+
+  const profileUpted = () => {
+    return updateCurrentUser((auth.currentUser, {}));
   };
   useEffect(() => {
     const unsubricbe = onAuthStateChanged(auth, currentUser => {
