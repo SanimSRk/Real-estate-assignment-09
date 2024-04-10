@@ -59,9 +59,9 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen ">
         <div className=" lg:w-[50%] hero-content flex-col lg:flex-row-reverse">
-          <div className=" card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="  border-2 border-[#FF9638] card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
               <div className="form-control">
                 <label className="label">
@@ -97,7 +97,7 @@ const Login = () => {
               </h2>
               <div className="form-control mt-4">
                 <input
-                  className="btn btn-primary"
+                  className="btn text-white bg-[#FF9638]"
                   type="submit"
                   value="Login"
                 />
@@ -112,7 +112,12 @@ const Login = () => {
                 </Link>
               </h2>
             </form>
-            <div className="mb-4 flex justify-center gap-6">
+            <div className="flex justify-center items-center gap-3 px-2">
+              <h2 className=" w-full border-b"></h2>
+              <h2>Or</h2>
+              <h2 className=" w-full border-b"></h2>
+            </div>
+            <div className="my-4 flex justify-center gap-6">
               <button onClick={handileGoogleSinig} className="btn  btn-outline">
                 <FcGoogle className="text-3xl"></FcGoogle>{' '}
               </button>
