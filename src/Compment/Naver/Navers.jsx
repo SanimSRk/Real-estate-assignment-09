@@ -25,6 +25,11 @@ const Navers = () => {
       <li>
         <NavLink to={'/profile'}>Update Profile</NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink to={'/userProfile'}>User Profile</NavLink>
+        </li>
+      )}
     </>
   );
   return (

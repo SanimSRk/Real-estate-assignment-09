@@ -41,9 +41,11 @@ const AuthProvider = ({ children }) => {
   };
 
   const googleSinig = () => {
+    setLodin(true);
     return signInWithPopup(auth, googleProvide);
   };
   const gitHubSinig = () => {
+    setLodin(true);
     return signInWithPopup(auth, gitHubProvide);
   };
 
@@ -52,11 +54,11 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         setLodin(false);
-      } else {
-        return () => {
-          unsubricbe();
-        };
       }
+
+      return () => {
+        unsubricbe();
+      };
     });
   }, []);
   const authInfo = {

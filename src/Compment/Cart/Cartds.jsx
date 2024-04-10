@@ -1,10 +1,22 @@
 import { Link } from 'react-router-dom';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 const Cartds = ({ resnt }) => {
   const { id, image, title, status, segment_name, facilities, price, area } =
     resnt;
   return (
-    <div className="shadow-lg p-4 ">
+    <div
+      className="shadow-lg p-4 "
+      data-aos="zoom-in-down"
+      data-aos-offset="200"
+      data-aos-delay="50"
+      data-aos-duration="1500"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div>
         <div>
           <img src={image} alt="" />

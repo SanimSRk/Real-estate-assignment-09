@@ -11,6 +11,7 @@ import Login from './FormRealted/Login';
 import Register from './FormRealted/Register';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivtedRout from './PrivtedRout/PrivtedRout';
+import UserProfile from './Pages/UserProfile';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,7 +31,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile></Profile>,
+        element: (
+          <PrivtedRout>
+            <Profile></Profile>
+          </PrivtedRout>
+        ),
+      },
+      {
+        path: '/userProfile',
+        element: (
+          <PrivtedRout>
+            <UserProfile></UserProfile>
+          </PrivtedRout>
+        ),
       },
       {
         path: '/cartDeatils/:id',
