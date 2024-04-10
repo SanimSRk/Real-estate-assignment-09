@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+
   return (
     <div
       data-aos="fade-right"
@@ -57,7 +57,7 @@ const UserProfile = () => {
         data-aos-delay="50"
         className="mt-4"
       >
-        Email : {user.email}
+        Email : {user?.email || 'Email is not found'}
       </h2>
     </div>
   );

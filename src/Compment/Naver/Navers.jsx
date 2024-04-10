@@ -60,7 +60,7 @@ const Navers = () => {
               {navLInks}
             </ul>
           </div>
-          <a className="btn btn-ghost lg:text-4xl gap-0 font-extrabold ">
+          <a className="btn btn-ghost text-xl md:text-3xl lg:text-4xl gap-0 font-extrabold ">
             Home<span className="text-[#FF9638]">Haven</span>
           </a>
         </div>

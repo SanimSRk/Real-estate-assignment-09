@@ -1,7 +1,9 @@
 import { useLoaderData, useParams } from 'react-router-dom';
+import { setLocalStroges } from '../Uitly/LockalStroges';
+
 const CartDetails = () => {
   const DeatilsData = useLoaderData();
-  console.log(DeatilsData);
+
   const { id } = useParams();
   const intId = parseInt(id);
   const datas = DeatilsData.find(dat => dat.id === intId);
@@ -16,6 +18,9 @@ const CartDetails = () => {
     facilities,
     location,
   } = datas;
+  const handileClicksDeatils = () => {
+    setLocalStroges(intId);
+  };
 
   return (
     <div className="w-[88%] mx-auto mt-4 mb-[100px]">
@@ -26,7 +31,10 @@ const CartDetails = () => {
           alt=""
         />
         <div className="-mt-14 ml-4">
-          <button className="btn  bg-[#FF9638] text-white text-xl font-semibold">
+          <button
+            onClick={handileClicksDeatils}
+            className="btn  bg-[#FF9638] text-white text-xl font-semibold"
+          >
             Buy Now
           </button>
         </div>

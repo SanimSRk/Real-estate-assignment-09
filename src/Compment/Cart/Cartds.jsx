@@ -8,12 +8,14 @@ const Cartds = ({ resnt }) => {
     resnt;
   return (
     <div
-      className="shadow-lg p-4 "
       data-aos="zoom-in-down"
-      data-aos-duration="1300"
+      data-aos-offset="200"
+      data-aos-delay="50"
+      data-aos-duration="1500"
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"
+      className="shadow-lg p-4 "
     >
       <div>
         <div>

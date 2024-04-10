@@ -63,6 +63,9 @@ const Login = () => {
         <div className=" lg:w-[50%] hero-content flex-col lg:flex-row-reverse">
           <div className="  border-2 border-[#FF9638] card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
+              <h2 className="text-[#FF9638] text-center text-2xl font-bold">
+                Login Now
+              </h2>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -70,7 +73,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered border-[#FF9638]"
                   required
                   {...register('email', { required: true })}
                 />
@@ -82,7 +85,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered border-[#FF9638]"
                   required
                   {...register('password', { required: true })}
                 />
@@ -111,20 +114,26 @@ const Login = () => {
                   </span>
                 </Link>
               </h2>
+              <div className="flex justify-center items-center gap-3  mt-2">
+                <h2 className=" w-full border-b border-[#FF9638]"></h2>
+                <h2>Or</h2>
+                <h2 className=" w-full border-b border-[#FF9638]"></h2>
+              </div>
+              <div className="mt-3 flex justify-center gap-6">
+                <button
+                  onClick={handileGoogleSinig}
+                  className="btn  btn-outline border-[#FF9638]"
+                >
+                  <FcGoogle className="text-3xl"></FcGoogle>{' '}
+                </button>
+                <button
+                  onClick={handileClickGitgub}
+                  className="btn border-[#FF9638] btn-outline"
+                >
+                  <BsGithub className="text-3xl"></BsGithub>{' '}
+                </button>
+              </div>
             </form>
-            <div className="flex justify-center items-center gap-3 px-2">
-              <h2 className=" w-full border-b"></h2>
-              <h2>Or</h2>
-              <h2 className=" w-full border-b"></h2>
-            </div>
-            <div className="my-4 flex justify-center gap-6">
-              <button onClick={handileGoogleSinig} className="btn  btn-outline">
-                <FcGoogle className="text-3xl"></FcGoogle>{' '}
-              </button>
-              <button onClick={handileClickGitgub} className="btn  btn-outline">
-                <BsGithub className="text-3xl"></BsGithub>{' '}
-              </button>
-            </div>
           </div>
         </div>
       </div>

@@ -11,7 +11,6 @@ const Register = () => {
   const location = useLocation();
   const [errorss, setErrors] = useState('');
   const [shows, setShows] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -22,17 +21,17 @@ const Register = () => {
     if (data.password.length < 6) {
       setErrors('Password should be at least 6 characters');
       return;
-    } else if (!/[A-Z]/.test(data.password)) {
+    } else if (!/[A-Z]/.test(data?.password)) {
       setErrors('Password does not have at least one uppercase letter');
-    } else if (!/[a-z]/.test(data.password)) {
+    } else if (!/[a-z]/.test(data?.password)) {
       setErrors('Password does not have at least one lowercase letter');
     } else {
       setErrors(null);
     }
 
-    creatAuccount(data.email, data.password)
+    creatAuccount(data?.email, data?.password)
       .then(() => {
-        profileUpted(data.fullName, data.photo).then(() => {
+        profileUpted(data?.fullName, data?.photo).then(() => {
           Navigate(location?.state || '/');
         });
       })
@@ -44,9 +43,12 @@ const Register = () => {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="w-1/2 hero-content flex-col lg:flex-row-reverse">
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="  w-full md:w-2/3 hero-content flex-col lg:flex-row-reverse">
+          <div className="border-2 border-[#FF9638] card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              <h2 className="text-2xl text-[#FF9638] text-center font-bold">
+                Registration Now
+              </h2>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Name</span>
@@ -54,7 +56,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="input input-bordered"
+                  className="input input-bordered  border-[#FF9638]"
                   required
                   {...register('fullName', { required: true })}
                 />
@@ -66,7 +68,7 @@ const Register = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered border-[#FF9638]"
                   required
                   {...register('email', { required: true })}
                 />
@@ -78,7 +80,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Photo "
-                  className="input input-bordered"
+                  className="input input-bordered border-[#FF9638]"
                   required
                   {...register('photo', { required: true })}
                 />
@@ -87,11 +89,11 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <div className="input input-bordered flex justify-between items-center">
+                <div className="input border-[#FF9638] input-bordered flex justify-between items-center">
                   <input
                     type={shows ? 'text' : 'password'}
                     placeholder="password"
-                    className=""
+                    className=" "
                     required
                     {...register('password', { required: true })}
                   />
@@ -101,16 +103,10 @@ const Register = () => {
                 </div>
 
                 <h2 className="text-red-600 font-semibold">{errorss}</h2>
-
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-4">
                 <input
-                  className="btn btn-primary"
+                  className="btn  bg-[#FF9638] text-white"
                   type="submit"
                   value="Registraion"
                 />

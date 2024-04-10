@@ -28,6 +28,7 @@ const router = createBrowserRouter([
             <Property></Property>
           </PrivtedRout>
         ),
+        loader: () => fetch('/Data.json'),
       },
       {
         path: '/profile',

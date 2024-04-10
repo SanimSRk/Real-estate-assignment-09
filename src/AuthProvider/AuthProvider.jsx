@@ -14,53 +14,50 @@ import auth from '../Firebase/firebaseAuth.init';
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loding, setLodin] = useState(true);
   const googleProvide = new GoogleAuthProvider();
   const gitHubProvide = new GithubAuthProvider();
-
+  const [loding, setLoding] = useState(true);
   const creatAuccount = (email, password) => {
-    setLodin(true);
+    setLoding(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const profileUpted = (fullName, photo) => {
-    return updateProfile(auth.currentUser, {
+    return updateProfile(auth?.currentUser, {
       displayName: fullName,
       photoURL: photo,
     });
   };
 
   const LoginUsers = (email, password) => {
-    setLodin(true);
+    setLoding(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const LogOutUser = () => {
     setUser(null);
-    return signOut(auth);
+    signOut(auth);
   };
 
   const googleSinig = () => {
-    setLodin(true);
+    setLoding(true);
     return signInWithPopup(auth, googleProvide);
   };
   const gitHubSinig = () => {
-    setLodin(true);
+    setLoding(false);
     return signInWithPopup(auth, gitHubProvide);
   };
 
   useEffect(() => {
-    const unsubricbe = onAuthStateChanged(auth, currentUser => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
       if (currentUser) {
         setUser(currentUser);
-        setLodin(false);
+        setLoding(false);
       }
-
-      return () => {
-        unsubricbe();
-      };
     });
+    return () => unsubscribe();
   }, []);
+
   const authInfo = {
     profileUpted,
     loding,
