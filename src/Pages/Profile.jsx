@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
@@ -18,6 +18,10 @@ const Profile = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    document.title = 'HomeHaven / Update Profile';
+  }, []);
   return (
     <div className="mb-[100px] border-2 border-[#FF9638] shadow-lg md:w-2/3 lg:w-1/2 mx-auto p-6 mt-6 rounded-lg">
       <h2 className="text-center text-2xl font-bold text-[#FF9638]">

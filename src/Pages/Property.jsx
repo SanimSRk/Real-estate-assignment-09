@@ -11,6 +11,8 @@ const Property = () => {
     const port = propertys.filter(ports => getStroges.includes(ports.id));
 
     setPropertys(port);
+
+    document.title = 'HomeHaven / Your Property';
   }, []);
 
   return (

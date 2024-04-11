@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+import { toast } from 'react-toastify';
 const Register = () => {
-  const { creatAuccount, profileUpted } = useContext(AuthContext);
+  const { creatAuccount, profileUpted, user } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const [errorss, setErrors] = useState('');
@@ -30,7 +31,10 @@ const Register = () => {
     }
 
     creatAuccount(data?.email, data?.password)
-      .then(() => {
+      .then(res => {
+        if (res.user) {
+          toast.success('Succssfully registration completed');
+        }
         profileUpted(data?.fullName, data?.photo).then(() => {
           Navigate(location?.state || '/');
         });
@@ -39,6 +43,10 @@ const Register = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    document.title = 'HomeHaven / registration';
+  }, []);
 
   return (
     <div>

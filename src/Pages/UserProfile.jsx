@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -7,6 +7,9 @@ AOS.init();
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
 
+  useEffect(() => {
+    document.title = 'HomeHaven / User Profile';
+  }, []);
   return (
     <div
       data-aos="fade-right"

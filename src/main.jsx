@@ -12,9 +12,11 @@ import Register from './FormRealted/Register';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivtedRout from './PrivtedRout/PrivtedRout';
 import UserProfile from './Pages/UserProfile';
+import ErrorPages from './Compment/ErrorPages/ErrorPages';
 const router = createBrowserRouter([
   {
     path: '/',
+    errorElement: <ErrorPages></ErrorPages>,
     element: <MainLayout></MainLayout>,
     children: [
       {

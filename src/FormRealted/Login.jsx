@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-
+import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
 const Login = () => {
@@ -23,6 +23,7 @@ const Login = () => {
     googleSinig()
       .then(res => {
         if (res.user) {
+          toast.success('succssfully login');
           Navigate(location?.state ? location.state : '/');
         }
       })
@@ -35,6 +36,7 @@ const Login = () => {
     gitHubSinig()
       .then(res => {
         if (res.user) {
+          toast.success('succssfully login');
           Navigate(location?.state ? location.state : '/');
         }
       })
@@ -50,6 +52,7 @@ const Login = () => {
     LoginUsers(data.email, data.password)
       .then(res => {
         if (res.user) {
+          toast.success('succssfully login');
           Navigate(location?.state ? location.state : '/');
         }
       })
@@ -57,6 +60,11 @@ const Login = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    document.title = 'HomeHaven / login';
+  }, []);
+
   return (
     <div>
       <div className="hero min-h-screen ">

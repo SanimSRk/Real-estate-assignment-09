@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import { setLocalStroges } from '../Uitly/LockalStroges';
+import { useEffect } from 'react';
 
 const CartDetails = () => {
   const DeatilsData = useLoaderData();
@@ -21,6 +22,10 @@ const CartDetails = () => {
   const handileClicksDeatils = () => {
     setLocalStroges(intId);
   };
+
+  useEffect(() => {
+    document.title = `HomeHaven / ${segment_name}`;
+  }, []);
 
   return (
     <div className="w-[88%] mx-auto mt-4 mb-[100px]">
