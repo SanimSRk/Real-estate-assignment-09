@@ -25,4 +25,4 @@
 
 - 2. React Hook form
 
-- 1. Swiper slider
+- 3. Swiper slider

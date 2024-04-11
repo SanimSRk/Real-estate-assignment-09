@@ -10,7 +10,7 @@ const Cartds = ({ resnt }) => {
     <div
       data-aos="zoom-in-down"
       data-aos-offset="200"
-      data-aos-delay="50"
+      data-aos-delay="200"
       data-aos-duration="1500"
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
