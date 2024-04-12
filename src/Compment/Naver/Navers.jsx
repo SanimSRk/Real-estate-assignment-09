@@ -104,7 +104,7 @@ const Navers = () => {
             </>
           ) : (
             <Link to={'/login'}>
-              <a className="btn">Login</a>
+              <a className="btn bg-[#FF9638] text-white">Login</a>
             </Link>
           )}
         </div>

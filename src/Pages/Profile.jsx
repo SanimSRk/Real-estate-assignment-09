@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Profile = () => {
-  const { profileUpted } = useContext(AuthContext);
+  const { profileUpted, user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -27,6 +27,22 @@ const Profile = () => {
       <h2 className="text-center text-2xl font-bold text-[#FF9638]">
         Update Your Profile
       </h2>
+      <div className=" text-center grid justify-center">
+        {
+          <img
+            className="rounded-full w-[140px] mx-auto mt-3"
+            src={
+              user?.photoURL ||
+              'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
+            }
+            alt=""
+          />
+        }
+        <h2 className="mt-3 text-xl font-semibold">
+          {user?.displayName || 'Name not found'}{' '}
+        </h2>
+        <h2 className="mt-5">Email : {user.email}</h2>
+      </div>
       <div className="">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
           <div className="form-control">
