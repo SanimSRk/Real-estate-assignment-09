@@ -11,7 +11,7 @@ const PropertyCarts = ({ prts }) => {
       data-aos-duration="1000"
       className="shadow-lg p-6 mb-4 mt-12 rounded-lg md:flex lg:flex gap-4"
     >
-      <div className="bg-base-200 p-6 lg:w-1/3 md:w-1/2">
+      <div className="bg-base-200 p-6 lg:w-1/3 md:w-1/2 grid items-center">
         <img
           data-aos="fade-up-right"
           data-aos-duration="1500"

@@ -46,9 +46,6 @@ const Login = () => {
   };
 
   const onSubmit = data => {
-    if (!user) {
-      setErrorsMassge('Incorrect email or Password');
-    }
     LoginUsers(data.email, data.password)
       .then(res => {
         if (res.user) {
@@ -57,6 +54,7 @@ const Login = () => {
         }
       })
       .catch(error => {
+        setErrorsMassge('Incorrect email or Password');
         console.log(error);
       });
   };

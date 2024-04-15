@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip';
 const Navers = () => {
   const { user, LogOutUser } = useContext(AuthContext);
 
@@ -65,18 +66,25 @@ const Navers = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-4">{navLInks}</ul>
+          <ul className="menu menu-horizontal px-1 gap-3">{navLInks}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
             <>
-              <div className="dropdown dropdown-end z-10">
+              <div
+                className="dropdown dropdown-end z-10 "
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName || 'Name not found'}
+                data-tooltip-place="bottom"
+              >
+                <Tooltip className="" id="my-tooltip" />
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className=" btn btn-ghost btn-circle avatar"
+                  data-tip="hello"
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="w-12 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
                       src={
@@ -86,21 +94,14 @@ const Navers = () => {
                     />
                   </div>
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a className="justify-between">
-                      {user?.displayName || 'Name not found'}
-                    </a>
-                  </li>
-
-                  <li onClick={handileLogOut}>
-                    <a>Logout</a>
-                  </li>
-                </ul>
               </div>
+
+              <button
+                onClick={handileLogOut}
+                className="text-white btn bg-[#FF9638]"
+              >
+                Logout
+              </button>
             </>
           ) : (
             <Link to={'/login'}>

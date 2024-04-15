@@ -3,15 +3,22 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Profile = () => {
-  const { profileUpted, user } = useContext(AuthContext);
+  const { profileUpted, user, setUser } = useContext(AuthContext);
+  console.log(user);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = data => {
+    console.log(data.email);
     profileUpted(data?.fullNames, data?.photos)
       .then(res => {
+        setUser({
+          displayName: data?.fullNames,
+          photoURL: data?.photos,
+          email: data?.email,
+        });
         console.log(res.user);
       })
       .catch(error => {
@@ -41,7 +48,7 @@ const Profile = () => {
         <h2 className="mt-3 text-xl font-semibold">
           {user?.displayName || 'Name not found'}{' '}
         </h2>
-        <h2 className="mt-5">Email : {user.email}</h2>
+        <h2 className="mt-5">Email : {user?.email || 'Email Not found'}</h2>
       </div>
       <div className="">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body ">

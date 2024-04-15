@@ -20,7 +20,7 @@ const UserProfile = () => {
       data-aos-mirror="true"
       data-aos-once="false"
       data-aos-delay="50"
-      className=" rounded-lg border-2 border-[#FF9638] w-1/3 mb-[80px] text-center mx-auto shadow-lg p-6 mt-6 grid justify-center"
+      className=" rounded-lg border-2 border-[#FF9638] md:w-1/2 lg:w-1/3 mb-[80px] text-center mx-auto shadow-lg p-6 mt-6 grid justify-center"
     >
       <div className=" w-[200px] mx-auto grid justify-center ">
         <img

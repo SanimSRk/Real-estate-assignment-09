@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
 
   const LogOutUser = () => {
     setUser(null);
+    setLoding(false);
     signOut(auth);
   };
 
@@ -44,7 +45,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvide);
   };
   const gitHubSinig = () => {
-    setLoding(false);
+    setLoding(true);
     return signInWithPopup(auth, gitHubProvide);
   };
 
@@ -52,6 +53,8 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       if (currentUser) {
         setUser(currentUser);
+        setLoding(false);
+      } else {
         setLoding(false);
       }
     });
@@ -67,6 +70,7 @@ const AuthProvider = ({ children }) => {
     LogOutUser,
     googleSinig,
     gitHubSinig,
+    setUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children} </AuthContext.Provider>

@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { toast } from 'react-toastify';
 const Register = () => {
-  const { creatAuccount, profileUpted, user } = useContext(AuthContext);
+  const { creatAuccount, profileUpted, LogOutUser } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const [errorss, setErrors] = useState('');
@@ -34,9 +34,10 @@ const Register = () => {
       .then(res => {
         if (res.user) {
           toast.success('Succssfully registration completed');
+          LogOutUser();
         }
         profileUpted(data?.fullName, data?.photo).then(() => {
-          Navigate(location?.state || '/');
+          Navigate(location?.state || '/login');
         });
       })
       .catch(error => {
@@ -47,7 +48,6 @@ const Register = () => {
   useEffect(() => {
     document.title = 'HomeHaven / registration';
   }, []);
-
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">

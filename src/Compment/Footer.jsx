@@ -1,7 +1,7 @@
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa6';
 const Footer = () => {
   return (
-    <div className="py-[70px] bg-neutral text-neutral-content">
+    <div className="py-[70px] bg-neutral text-neutral-content mt-[100px]">
       <div className="w-[88%] mx-auto">
         <div>
           <h2 className="text-center text-3xl gap-0 font-extrabold ">

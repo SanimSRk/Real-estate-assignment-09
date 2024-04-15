@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="">
       <div className="h-16">
         <Navers></Navers>
       </div>
