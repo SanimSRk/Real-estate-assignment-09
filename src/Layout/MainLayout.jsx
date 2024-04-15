@@ -10,8 +10,13 @@ const MainLayout = () => {
       <div className="h-16">
         <Navers></Navers>
       </div>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div>
+        <Outlet></Outlet>
+      </div>
+      <div>
+        <Footer></Footer>
+      </div>
+
       <ToastContainer className={'rounded-lg'} />
     </div>
   );
